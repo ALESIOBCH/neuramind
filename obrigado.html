@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeuraMind — Parabéns!</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/obrigado.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="navbar__logo">Neura<span>Mind</span></div>
+  </nav>
+
+  <main class="obg-wrap">
+
+    <!-- HERO CONFIRMAÇÃO -->
+    <section class="obg-hero">
+      <div class="obg-check">✓</div>
+      <div class="tag">Pagamento confirmado</div>
+      <h1 class="obg-title">Parabéns, <span id="nomeCliente">campeão</span>!</h1>
+      <p class="obg-sub">Sua avaliação foi registrada. O certificado oficial será enviado em até <strong>7 dias úteis</strong> para o seu e-mail.</p>
+    </section>
+
+    <!-- PRÉVIA DO RESULTADO -->
+    <section class="obg-section">
+      <div class="container">
+        <div class="obg-card obg-result-card">
+          <div class="obg-result-left">
+            <div class="preview__label">Sua pontuação</div>
+            <div class="preview__iq" id="iqDisplay">— —</div>
+            <div class="preview__range" id="percentilDisplay">Calculando percentil...</div>
+
+            <div class="preview__bars" id="barsDisplay">
+              <div class="pbar"><div class="pbar__header"><span>Raciocínio lógico</span><span id="b1">—</span></div><div class="pbar__track"><div class="pbar__fill" id="bf1" data-width="0%"></div></div></div>
+              <div class="pbar"><div class="pbar__header"><span>Memória</span><span id="b2">—</span></div><div class="pbar__track"><div class="pbar__fill" id="bf2" data-width="0%"></div></div></div>
+              <div class="pbar"><div class="pbar__header"><span>Atenção</span><span id="b3">—</span></div><div class="pbar__track"><div class="pbar__fill" id="bf3" data-width="0%"></div></div></div>
+              <div class="pbar"><div class="pbar__header"><span>Padrões</span><span id="b4">—</span></div><div class="pbar__track"><div class="pbar__fill" id="bf4" data-width="0%"></div></div></div>
+              <div class="pbar"><div class="pbar__header"><span>Velocidade</span><span id="b5">—</span></div><div class="pbar__track"><div class="pbar__fill" id="bf5" data-width="0%"></div></div></div>
+            </div>
+          </div>
+
+          <div class="obg-result-right">
+            <h3 class="obg-cert-title">Seu certificado está sendo preparado</h3>
+            <p class="obg-cert-sub">Após a validação interna, você receberá:</p>
+            <ul class="preview__checklist">
+              <li><div class="check-icon">✓</div> Certificado com seu nome e QI</li>
+              <li><div class="check-icon">✓</div> QR Code para validação</li>
+              <li><div class="check-icon">✓</div> Assinatura digital</li>
+              <li><div class="check-icon">✓</div> Número único de registro</li>
+              <li><div class="check-icon">✓</div> Disponível em até 7 dias</li>
+            </ul>
+            <div class="obg-cert-preview">
+              <div class="cert-mock">
+                <div class="cert-mock__header">NeuraMind</div>
+                <div class="cert-mock__body">
+                  <div class="cert-mock__label">CERTIFICADO DE AVALIAÇÃO COGNITIVA</div>
+                  <div class="cert-mock__name" id="certNome">— — —</div>
+                  <div class="cert-mock__iq" id="certIq">QI: — —</div>
+                  <div class="cert-mock__foot">
+                    <div>🔲 QR CODE</div>
+                    <div id="certId" style="font-size:10px;color:#555">NM-XXXXXXXX</div>
+                  </div>
+                </div>
+              </div>
+              <div class="cert-blur-overlay">Em preparação</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- UPSELL TELEGRAM -->
+    <section class="obg-section obg-telegram">
+      <div class="container">
+        <div class="obg-card obg-tg-card">
+          <div class="obg-tg-left">
+            <div class="tag">Oferta exclusiva para você</div>
+            <h2 class="obg-tg-title">Agora que você sabe seu nível…<br><em>que tal superá-lo?</em></h2>
+            <p class="obg-tg-text">
+              Pessoas com alto QI não nascem prontas — elas treinam. Nosso programa de desenvolvimento cognitivo entrega exercícios diários direto no seu Telegram, ajustados ao seu perfil.
+            </p>
+            <ul class="preview__checklist" style="margin-bottom:28px">
+              <li><div class="check-icon">✓</div> Exercícios diários de lógica e memória</li>
+              <li><div class="check-icon">✓</div> IA adapta a dificuldade ao seu nível</li>
+              <li><div class="check-icon">✓</div> Novos testes mensais de QI</li>
+              <li><div class="check-icon">✓</div> Relatório de evolução todo mês</li>
+              <li><div class="check-icon">✓</div> Ranking e conquistas</li>
+            </ul>
+
+            <div class="obg-price-box">
+              <div class="obg-price-old">De R$59/mês</div>
+              <div class="obg-price-new"><sub>R$</sub>37<span>/mês</span></div>
+              <div class="obg-price-note">Cancele quando quiser. Sem multa.</div>
+            </div>
+
+            <a href="https://pay.kiwify.com.br/SEU-LINK-ASSINATURA" class="btn-primary btn-tg" id="tgBtn">
+              📱 Quero o programa no Telegram →
+            </a>
+            <p class="obg-tg-skip" id="skipBtn">Não, obrigado. Vou esperar meu certificado.</p>
+          </div>
+
+          <div class="obg-tg-right">
+            <!-- Mock do Telegram -->
+            <div class="tg-mock">
+              <div class="tg-mock__header">
+                <div class="tg-mock__avatar">🧠</div>
+                <div>
+                  <div class="tg-mock__name">NeuraMind Bot</div>
+                  <div class="tg-mock__status">online</div>
+                </div>
+              </div>
+              <div class="tg-mock__messages">
+                <div class="tg-msg tg-msg--bot">
+                  Bom dia! 🌅 Sua missão de hoje:
+                </div>
+                <div class="tg-msg tg-msg--bot">
+                  🧩 <strong>Desafio de Padrões</strong><br>
+                  Qual vem a seguir?<br>
+                  2 → 6 → 18 → 54 → <strong>?</strong>
+                </div>
+                <div class="tg-msg tg-msg--user">162</div>
+                <div class="tg-msg tg-msg--bot">
+                  ✅ Correto! +50 XP<br>
+                  Sua sequência atual: 🔥 7 dias
+                </div>
+                <div class="tg-msg tg-msg--bot">
+                  📊 Você está no <strong>Top 12%</strong> desta semana
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRÓXIMOS PASSOS -->
+    <section class="obg-section">
+      <div class="container">
+        <h2 class="section-title" style="text-align:center;margin-bottom:40px">O que acontece agora?</h2>
+        <div class="steps" style="max-width:800px;margin:0 auto">
+          <div class="step-card">
+            <div class="step-card__num" style="font-size:24px">📧</div>
+            <div class="step-card__title">E-mail de confirmação</div>
+            <p class="step-card__text">Você receberá em instantes um e-mail com seu resultado e número de certificado.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-card__num" style="font-size:24px">🔍</div>
+            <div class="step-card__title">Validação interna</div>
+            <p class="step-card__text">Nossa equipe valida sua avaliação para garantir a autenticidade do certificado.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-card__num" style="font-size:24px">🏆</div>
+            <div class="step-card__title">Certificado em 7 dias</div>
+            <p class="step-card__text">Você recebe seu certificado oficial com QR Code e assinatura digital por e-mail.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer">
+        <div class="footer__copy">© 2025 NeuraMind. Todos os direitos reservados.</div>
+        <div class="footer__links">
+          <a href="mailto:contato@neuramind.com.br">Contato</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/obrigado.js"></script>
+</body>
+</html>

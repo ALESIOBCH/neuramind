@@ -1,0 +1,248 @@
+/* =========================================
+   NeuraMind — obrigado.css
+   ========================================= */
+
+.obg-wrap { padding-top: 80px; }
+
+/* Hero */
+.obg-hero {
+  text-align: center;
+  padding: 64px 24px 48px;
+  border-bottom: 1px solid var(--bg-border);
+}
+.obg-check {
+  width: 64px; height: 64px;
+  background: rgba(79,110,247,0.15);
+  border: 2px solid var(--blue);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px; color: var(--blue);
+  margin: 0 auto 20px;
+}
+.obg-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 12px;
+}
+.obg-title span { color: var(--blue); }
+.obg-sub { color: var(--muted); font-size: 15px; max-width: 480px; margin: 0 auto; }
+
+/* Sections */
+.obg-section { padding: 64px 0; }
+.obg-card {
+  background: var(--bg-card);
+  border: 1px solid var(--bg-border);
+  border-radius: 20px;
+  padding: 40px;
+}
+
+/* Result card */
+.obg-result-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+.obg-cert-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+.obg-cert-sub { font-size: 14px; color: var(--muted); margin-bottom: 16px; }
+
+/* Certificate mock */
+.obg-cert-preview { position: relative; margin-top: 24px; }
+.cert-mock {
+  background: linear-gradient(135deg, #1a1a2e 0%, #12121A 100%);
+  border: 1px solid var(--blue-dim);
+  border-radius: 12px;
+  overflow: hidden;
+  filter: blur(3px);
+}
+.cert-mock__header {
+  background: var(--blue);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 14px;
+  padding: 10px 16px;
+  letter-spacing: 0.05em;
+}
+.cert-mock__body { padding: 20px 16px; }
+.cert-mock__label {
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.cert-mock__name {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+.cert-mock__iq {
+  font-size: 13px;
+  color: var(--blue);
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.cert-mock__foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--bg-border);
+  padding-top: 12px;
+  font-size: 11px;
+  color: var(--muted);
+}
+.cert-blur-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--muted);
+  background: rgba(10,10,15,0.4);
+  backdrop-filter: blur(1px);
+  border-radius: 12px;
+}
+
+/* Telegram upsell */
+.obg-telegram {
+  background: linear-gradient(180deg, var(--bg) 0%, rgba(79,110,247,0.04) 100%);
+  border-top: 1px solid var(--bg-border);
+  border-bottom: 1px solid var(--bg-border);
+}
+.obg-tg-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.obg-tg-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+.obg-tg-title em { font-style: normal; color: var(--blue); }
+.obg-tg-text { color: var(--muted); font-size: 15px; margin-bottom: 24px; }
+
+.obg-price-box { margin-bottom: 24px; }
+.obg-price-old {
+  font-size: 13px;
+  color: var(--muted);
+  text-decoration: line-through;
+  margin-bottom: 4px;
+}
+.obg-price-new {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.obg-price-new sub { font-size: 1rem; font-weight: 600; color: var(--muted); }
+.obg-price-new span { font-size: 1rem; color: var(--muted); }
+.obg-price-note { font-size: 12px; color: var(--muted); margin-top: 6px; }
+
+.btn-tg {
+  display: block;
+  text-align: center;
+  background: var(--blue);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  padding: 18px 28px;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  margin-bottom: 12px;
+}
+.btn-tg:hover { opacity: 0.85; }
+.obg-tg-skip {
+  font-size: 13px;
+  color: var(--muted);
+  text-align: center;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.obg-tg-skip:hover { color: var(--white); }
+
+/* Telegram mock */
+.tg-mock {
+  background: #17212b;
+  border-radius: 16px;
+  overflow: hidden;
+  max-width: 320px;
+  margin: 0 auto;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+}
+.tg-mock__header {
+  background: #232e3c;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid #1a2533;
+}
+.tg-mock__avatar {
+  width: 36px; height: 36px;
+  background: var(--blue-glow);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.tg-mock__name { font-weight: 700; font-size: 14px; color: #fff; }
+.tg-mock__status { font-size: 11px; color: #4CAF50; }
+.tg-mock__messages {
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 220px;
+}
+.tg-msg {
+  max-width: 85%;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.tg-msg--bot {
+  background: #232e3c;
+  color: #e8e8e8;
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+}
+.tg-msg--user {
+  background: var(--blue);
+  color: #fff;
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .obg-result-card,
+  .obg-tg-card { grid-template-columns: 1fr; gap: 32px; }
+  .obg-card { padding: 24px 20px; }
+  .tg-mock { max-width: 100%; }
+}

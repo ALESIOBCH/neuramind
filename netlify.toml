@@ -1,0 +1,31 @@
+# =========================================
+# NeuraMind — netlify.toml
+# =========================================
+
+[build]
+  publish = "."
+
+# Redirect clean URLs (optional)
+[[redirects]]
+  from = "/teste"
+  to   = "/teste.html"
+  status = 200
+
+[[redirects]]
+  from = "/privacidade"
+  to   = "/privacidade.html"
+  status = 200
+
+[[redirects]]
+  from = "/termos"
+  to   = "/termos.html"
+  status = 200
+
+# Security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options        = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy        = "strict-origin-when-cross-origin"
+    Permissions-Policy     = "geolocation=(), camera=(), microphone=()"

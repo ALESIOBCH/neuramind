@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeuraMind — Avaliação Cognitiva Gratuita</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/teste.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="navbar__logo">Neura<span>Mind</span></div>
+    <div class="quiz-progress-label" id="progressLabel">Questão 1 de 20</div>
+  </nav>
+
+  <main class="quiz-wrap">
+
+    <!-- STEP 1: QUIZ -->
+    <div class="quiz-step active" id="step-quiz">
+      <div class="quiz-progress-bar">
+        <div class="quiz-progress-fill" id="progressFill"></div>
+      </div>
+      <div class="quiz-card">
+        <div class="quiz-area-tag" id="areaTag"></div>
+        <h2 class="quiz-question" id="questionText"></h2>
+        <div class="quiz-options" id="optionsContainer"></div>
+        <div class="quiz-nav">
+          <button class="btn-ghost" id="prevBtn" style="display:none">← Anterior</button>
+          <button class="btn-primary" id="nextBtn" disabled>Próxima →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2: RESULTADO PARCIAL + CADASTRO -->
+    <div class="quiz-step" id="step-cadastro">
+      <div class="quiz-card quiz-card--result">
+
+        <div class="result-icon">🧠</div>
+        <div class="tag">Análise concluída</div>
+        <h2 class="quiz-title">Seu QI está na faixa de</h2>
+        <div class="result-range" id="resultRangeCadastro">— —</div>
+        <p class="result-sub" id="resultPercCadastro"></p>
+
+        <!-- Conteúdo bloqueado -->
+        <div class="result-blur-wrap">
+          <div class="result-blur-content">
+            <div class="result-blur-row"><span>Percentil exato</span><span class="blur-text">██</span></div>
+            <div class="result-blur-row"><span>Pontuação por habilidade</span><span class="blur-text">████</span></div>
+            <div class="result-blur-row"><span>Perfil cognitivo detalhado</span><span class="blur-text">██████</span></div>
+            <div class="result-blur-row"><span>Certificado oficial</span><span class="blur-text">████████</span></div>
+          </div>
+          <div class="result-blur-overlay">
+            <p>🔒 Desbloqueie seu resultado completo</p>
+          </div>
+        </div>
+
+        <!-- Formulário de cadastro -->
+        <div class="cadastro-box">
+          <p class="cadastro-title">Para continuar, informe seus dados:</p>
+          <form id="cadastroForm">
+            <div class="field-group">
+              <label class="field-label">Nome completo</label>
+              <input class="field-input" type="text" id="cNome" placeholder="Seu nome" required />
+            </div>
+            <div class="field-group">
+              <label class="field-label">E-mail</label>
+              <input class="field-input" type="email" id="cEmail" placeholder="seu@email.com" required />
+            </div>
+            <button class="btn-primary btn-full btn-lg" type="submit" id="cadastroBtn">
+              Ver meu resultado completo →
+            </button>
+          </form>
+          <p class="quiz-disclaimer">Você será direcionado para o pagamento do certificado oficial.<br>
+          Seus dados são protegidos. Sem spam.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- STEP 3: fallback (não usado, redireciona para Kiwify) -->
+    <div class="quiz-step" id="step-result"></div>
+
+  </main>
+
+  <script src="js/quiz.js"></script>
+</body>
+</html>

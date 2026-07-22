@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeuraMind — Descubra seu nível cognitivo</title>
+  <meta name="description" content="Avaliação cognitiva profissional. Raciocínio lógico, memória, atenção e capacidade analítica em menos de 30 minutos." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="navbar__logo">Neura<span>Mind</span></div>
+    <button class="navbar__cta" data-cta>Iniciar avaliação →</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__bg-grid"></div>
+    <div class="hero__bg-glow"></div>
+
+    <div class="tag">Avaliação Cognitiva Profissional</div>
+
+    <h1 class="hero__headline">
+      As maiores empresas do mundo<br>
+      pagam fortunas por pessoas com<br>
+      <em>QI elevado.</em><br>
+      Descubra onde você está nessa escala.
+    </h1>
+
+    <p class="hero__sub">
+      Em menos de 30 minutos, nossa avaliação mede seu raciocínio lógico, memória, atenção e capacidade analítica — e te posiciona entre milhares de pessoas.
+    </p>
+
+    <div class="scan-bar">
+      <div class="scan-bar__fill"></div>
+    </div>
+    <p class="scan-label">Análise cognitiva em tempo real</p>
+
+    <div class="hero__cta-group">
+      <button class="btn-primary" data-cta>Fazer minha avaliação agora</button>
+      <button class="btn-ghost" onclick="document.querySelector('.how').scrollIntoView({behavior:'smooth'})">Como funciona</button>
+    </div>
+
+    <div class="hero__trust">
+      <div class="trust-item">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M4.5 7l2 2 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Não é um quiz. É uma avaliação real.
+      </div>
+      <div class="trust-item">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M4.5 7l2 2 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Certificado oficial em até 7 dias
+      </div>
+      <div class="trust-item">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M4.5 7l2 2 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Pagamento 100% seguro
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats__grid">
+        <div>
+          <div class="stat__number"><span data-target="18400" data-suffix="+">0</span></div>
+          <div class="stat__label">avaliações realizadas</div>
+        </div>
+        <div>
+          <div class="stat__number"><span data-target="6">0</span> <span style="color:var(--white)">áreas</span></div>
+          <div class="stat__label">cognitivas avaliadas</div>
+        </div>
+        <div>
+          <div class="stat__number"><span data-target="30">0</span><span style="color:var(--blue)">min</span></div>
+          <div class="stat__label">tempo médio do teste</div>
+        </div>
+        <div>
+          <div class="stat__number"><span data-target="97">0</span><span style="color:var(--blue)">%</span></div>
+          <div class="stat__label">de satisfação</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how" id="como-funciona">
+    <div class="container">
+      <div class="tag">Como funciona</div>
+      <h2 class="section-title">Simples, rápido e preciso</h2>
+      <p class="section-sub">Quatro etapas para você descobrir seu perfil cognitivo completo.</p>
+
+      <div class="steps">
+        <div class="step-card">
+          <div class="step-card__num">Etapa 01</div>
+          <div class="step-card__title">Cadastro gratuito</div>
+          <p class="step-card__text">Informe apenas nome e e-mail. Nenhum cartão necessário para começar.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-card__num">Etapa 02</div>
+          <div class="step-card__title">Realize a avaliação</div>
+          <p class="step-card__text">Responda questões que medem 6 habilidades cognitivas distintas em cerca de 30 minutos.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-card__num">Etapa 03</div>
+          <div class="step-card__title">Acesse seu relatório</div>
+          <p class="step-card__text">Após o pagamento, receba imediatamente sua pontuação, percentil e relatório completo.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-card__num">Etapa 04</div>
+          <div class="step-card__title">Certificado oficial</div>
+          <p class="step-card__text">O certificado com QR Code e assinatura digital é emitido em até 7 dias após a validação.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AREAS AVALIADAS -->
+  <section class="areas">
+    <div class="container">
+      <div class="tag">O que é avaliado</div>
+      <h2 class="section-title">6 dimensões cognitivas</h2>
+      <p class="section-sub">Cada área é medida de forma independente para um perfil detalhado.</p>
+
+      <div class="areas__grid">
+        <div class="area-pill"><span class="area-pill__icon">🧠</span> Raciocínio lógico</div>
+        <div class="area-pill"><span class="area-pill__icon">💾</span> Memória</div>
+        <div class="area-pill"><span class="area-pill__icon">🎯</span> Atenção</div>
+        <div class="area-pill"><span class="area-pill__icon">⚡</span> Velocidade de processamento</div>
+        <div class="area-pill"><span class="area-pill__icon">🔷</span> Reconhecimento de padrões</div>
+        <div class="area-pill"><span class="area-pill__icon">📊</span> Capacidade analítica</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULT PREVIEW -->
+  <section class="preview">
+    <div class="container">
+      <div class="preview__inner">
+        <!-- Left: mock result -->
+        <div>
+          <div class="preview__label">Exemplo de resultado</div>
+          <div class="preview__iq">1<span>2</span>7</div>
+          <div class="preview__range">Percentil 94 — acima de 94% da população</div>
+
+          <div class="preview__bars">
+            <div class="pbar">
+              <div class="pbar__header"><span>Raciocínio lógico</span><span>92/100</span></div>
+              <div class="pbar__track"><div class="pbar__fill" data-width="92%"></div></div>
+            </div>
+            <div class="pbar">
+              <div class="pbar__header"><span>Memória</span><span>78/100</span></div>
+              <div class="pbar__track"><div class="pbar__fill" data-width="78%"></div></div>
+            </div>
+            <div class="pbar">
+              <div class="pbar__header"><span>Atenção</span><span>85/100</span></div>
+              <div class="pbar__track"><div class="pbar__fill" data-width="85%"></div></div>
+            </div>
+            <div class="pbar">
+              <div class="pbar__header"><span>Velocidade</span><span>88/100</span></div>
+              <div class="pbar__track"><div class="pbar__fill" data-width="88%"></div></div>
+            </div>
+            <div class="pbar">
+              <div class="pbar__header"><span>Padrões</span><span>95/100</span></div>
+              <div class="pbar__track"><div class="pbar__fill" data-width="95%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: CTA -->
+        <div>
+          <h3 class="preview__right-title">O que você recebe após o pagamento</h3>
+          <p class="preview__right-text">Um relatório completo e personalizado com tudo o que você precisa saber sobre seu potencial cognitivo.</p>
+          <ul class="preview__checklist">
+            <li><div class="check-icon">✓</div> Pontuação e QI estimado</li>
+            <li><div class="check-icon">✓</div> Percentil comparativo</li>
+            <li><div class="check-icon">✓</div> Análise por habilidade</li>
+            <li><div class="check-icon">✓</div> Recomendações de desenvolvimento</li>
+            <li><div class="check-icon">✓</div> Certificado em até 7 dias</li>
+            <li><div class="check-icon">✓</div> Acesso à área do aluno</li>
+          </ul>
+          <button class="btn-primary" data-cta>Quero saber meu QI →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing">
+    <div class="container">
+      <div class="tag">Planos</div>
+      <h2 class="section-title">Invista no seu desenvolvimento</h2>
+      <p class="section-sub">Comece com a avaliação e evolua com o programa mensal.</p>
+
+      <div class="pricing__grid">
+        <div class="price-card">
+          <div class="price-card__name">Avaliação</div>
+          <div class="price-card__price"><sub>R$</sub> 47</div>
+          <div class="price-card__period">pagamento único</div>
+          <ul class="price-card__list">
+            <li>Teste cognitivo completo</li>
+            <li>Relatório detalhado</li>
+            <li>Pontuação e percentil</li>
+            <li>Certificado oficial (7 dias)</li>
+            <li>Área do aluno</li>
+          </ul>
+          <button class="btn-primary" style="width:100%" data-cta>Começar agora</button>
+        </div>
+
+        <div class="price-card price-card--featured">
+          <div class="price-card__badge">Mais popular</div>
+          <div class="price-card__name">Evolução Contínua</div>
+          <div class="price-card__price"><sub>R$</sub> 37</div>
+          <div class="price-card__period">por mês — após a avaliação</div>
+          <ul class="price-card__list">
+            <li>Tudo do plano Avaliação</li>
+            <li>Exercícios diários personalizados</li>
+            <li>Treinos de memória e atenção</li>
+            <li>Novos testes periódicos</li>
+            <li>Relatório mensal de evolução</li>
+            <li>Acesso ao programa no Telegram</li>
+            <li>IA adaptativa de dificuldade</li>
+          </ul>
+          <button class="btn-primary" style="width:100%" data-cta>Quero evoluir</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="container">
+      <div class="tag">Perguntas frequentes</div>
+      <h2 class="section-title">Suas dúvidas respondidas</h2>
+
+      <div class="faq__list">
+        <div class="faq-item">
+          <button class="faq-item__q">
+            O teste é confiável? <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__a">
+            Sim. Nossa avaliação é baseada em metodologia estruturada que mede habilidades cognitivas reais — não é um quiz de redes sociais. O resultado inclui comparação estatística com milhares de outros participantes.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__q">
+            Por que o certificado demora até 7 dias? <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__a">
+            O certificado passa por um processo interno de validação para garantir sua autenticidade. Após a validação, é emitido com QR Code, número único e assinatura digital registrada permanentemente na plataforma.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__q">
+            Como funciona o programa mensal? <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__a">
+            Após a avaliação inicial, você recebe acesso a um programa de exercícios diários entregue via Telegram. Desafios de lógica, treinos de memória, sequências e muito mais — com IA que ajusta a dificuldade ao seu nível.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__q">
+            Posso cancelar a assinatura? <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__a">
+            Sim, a qualquer momento sem multa. Basta acessar sua área do aluno ou entrar em contato com nosso suporte.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__q">
+            O pagamento é seguro? <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__a">
+            Sim. Os pagamentos são processados pela Kiwify, plataforma certificada com criptografia SSL. Aceitamos cartão de crédito, PIX e boleto.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BOTTOM -->
+  <section class="cta-bottom">
+    <div class="container">
+      <h2 class="cta-bottom__title">Você é uma dessas pessoas que o mercado disputa?</h2>
+      <p class="cta-bottom__sub">Descubra seu nível cognitivo em menos de 30 minutos.</p>
+      <button class="btn-primary" data-cta>Fazer minha avaliação agora →</button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer">
+        <div class="footer__copy">© 2025 NeuraMind. Todos os direitos reservados.</div>
+        <div class="footer__links">
+          <a href="privacidade.html">Privacidade</a>
+          <a href="termos.html">Termos de uso</a>
+          <a href="mailto:contato@neuramind.com.br">Contato</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
