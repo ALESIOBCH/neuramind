@@ -154,7 +154,7 @@ document.getElementById('cadastroForm').addEventListener('submit', async (e) => 
   }
 
   // Redireciona para Kiwify com parâmetros UTM
-  const kiwifyBase = 'https://pay.kiwify.com.br/SEU-LINK-AQUI';
+  const kiwifyBase = 'https://pay.kiwify.com.br/0dmU36N';
   const params     = new URLSearchParams({ name: nome, email, checkout_name: nome });
   window.location.href = `${kiwifyBase}?${params.toString()}`;
 });
