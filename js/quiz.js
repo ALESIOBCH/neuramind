@@ -4,7 +4,7 @@
    ========================================= */
 
 // ⚠️ SUBSTITUA pela URL do seu Google Apps Script após implantar
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/SEU_ID_AQUI/exec';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxhvm2CfTxVLYFwFGbCS74LGPTjVBmWB6zKhA6Bhr75sIkVnNaaYJe1cgC1wZCTl707/exec';
 
 /* ---------- QUESTIONS ---------- */
 const QUESTIONS = [
