@@ -1,5 +1,5 @@
 /* =========================================
-   NeuraMind — quiz.js (versão 3)
+   NeuraMind — quiz.js (versão 4 - GET method)
    ========================================= */
 
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxhvm2CfTxVLYFwFGbCS74LGPTjVBmWB6zKhA6Bhr75sIkVnNaaYJe1cgC1wZCTl707/exec';
@@ -43,16 +43,15 @@ const prevBtn      = document.getElementById('prevBtn');
 const nextBtn      = document.getElementById('nextBtn');
 
 function showStep(step) {
-  [stepQuiz, stepCadastro, stepResult].forEach(s => s.classList.remove('active'));
+  [stepQuiz, stepCadastro, stepResult].forEach(function(s) { s.classList.remove('active'); });
   step.classList.add('active');
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function renderQuestion() {
-  const q     = QUESTIONS[current];
-  const total = QUESTIONS.length;
-  const pct   = ((current + 1) / total) * 100;
-  progressFill.style.width  = pct + '%';
+  var q     = QUESTIONS[current];
+  var total = QUESTIONS.length;
+  progressFill.style.width  = ((current + 1) / total * 100) + '%';
   progressLabel.textContent = 'Questão ' + (current + 1) + ' de ' + total;
   areaTag.textContent       = q.area;
   questionText.textContent  = q.text;
@@ -101,6 +100,17 @@ function computeAndShowResult() {
   showStep(stepCadastro);
 }
 
+function enviarDados(nome, email, iqLow, iqHigh, percentil) {
+  // Usa imagem invisível para disparar GET — funciona sem CORS
+  var params = '?nome=' + encodeURIComponent(nome) +
+               '&email=' + encodeURIComponent(email) +
+               '&iq_low=' + iqLow +
+               '&iq_high=' + iqHigh +
+               '&percentil=' + percentil;
+  var img = new Image();
+  img.src = APPS_SCRIPT_URL + params;
+}
+
 document.getElementById('cadastroForm').addEventListener('submit', function(e) {
   e.preventDefault();
   var nome  = document.getElementById('cNome').value.trim();
@@ -118,27 +128,14 @@ document.getElementById('cadastroForm').addEventListener('submit', function(e) {
   sessionStorage.setItem('nm_iq_high',   iqResult.iqHigh);
   sessionStorage.setItem('nm_percentil', iqResult.percentil);
 
-  var payload = JSON.stringify({
-    nome:      nome,
-    email:     email,
-    iq_low:    iqResult.iqLow,
-    iq_high:   iqResult.iqHigh,
-    percentil: iqResult.percentil
-  });
+  // Envia dados via imagem invisível (sem CORS)
+  enviarDados(nome, email, iqResult.iqLow, iqResult.iqHigh, iqResult.percentil);
 
-  // Dispara para o Google sem esperar resposta (resolve problema de CORS)
-  try {
-    navigator.sendBeacon(APPS_SCRIPT_URL, new Blob([payload], { type: 'application/json' }));
-  } catch(_) {
-    fetch(APPS_SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: payload });
-  }
-
-  // Aguarda 800ms e redireciona
+  // Aguarda 1s e redireciona
   setTimeout(function() {
-    var kiwifyBase = 'https://pay.kiwify.com.br/0dmU36N';
     var params = new URLSearchParams({ name: nome, email: email });
-    window.location.href = kiwifyBase + '?' + params.toString();
-  }, 800);
+    window.location.href = 'https://pay.kiwify.com.br/0dmU36N?' + params.toString();
+  }, 1000);
 });
 
 showStep(stepQuiz);
