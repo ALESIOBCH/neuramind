@@ -1,12 +1,9 @@
 /* =========================================
-   NeuraMind — quiz.js (versão 2)
-   Fluxo: Teste → Resultado parcial → Cadastro → Kiwify
+   NeuraMind — quiz.js (versão 3)
    ========================================= */
 
-// ⚠️ SUBSTITUA pela URL do seu Google Apps Script após implantar
-const APPS_SCRIPT_URL = '/.netlify/functions/salvar';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxhvm2CfTxVLYFwFGbCS74LGPTjVBmWB6zKhA6Bhr75sIkVnNaaYJe1cgC1wZCTl707/exec';
 
-/* ---------- QUESTIONS ---------- */
 const QUESTIONS = [
   { area: 'Raciocínio Lógico', text: 'Se todos os A são B, e todos os B são C, então:', options: ['Todos os A são C', 'Todos os C são A', 'Nenhum A é C', 'Alguns C são A'], correct: 0, weight: 2 },
   { area: 'Raciocínio Lógico', text: 'Qual número completa a sequência? 2, 6, 18, 54, ___', options: ['108', '162', '72', '216'], correct: 1, weight: 2 },
@@ -30,50 +27,43 @@ const QUESTIONS = [
   { area: 'Reconhecimento de Padrões', text: 'Se CARRO = 15, MOTO = 12, então BICICLETA = ?', options: ['27', '21', '18', '24'], correct: 1, weight: 3 },
 ];
 
-/* ---------- STATE ---------- */
 let current  = 0;
 let answers  = [];
 let iqResult = {};
 
-/* ---------- DOM ---------- */
-const stepQuiz    = document.getElementById('step-quiz');
-const stepCadastro= document.getElementById('step-cadastro');
-const stepResult  = document.getElementById('step-result');
-const progressFill= document.getElementById('progressFill');
-const progressLabel=document.getElementById('progressLabel');
-const areaTag     = document.getElementById('areaTag');
-const questionText= document.getElementById('questionText');
-const optionsCont = document.getElementById('optionsContainer');
-const prevBtn     = document.getElementById('prevBtn');
-const nextBtn     = document.getElementById('nextBtn');
+const stepQuiz     = document.getElementById('step-quiz');
+const stepCadastro = document.getElementById('step-cadastro');
+const stepResult   = document.getElementById('step-result');
+const progressFill = document.getElementById('progressFill');
+const progressLabel= document.getElementById('progressLabel');
+const areaTag      = document.getElementById('areaTag');
+const questionText = document.getElementById('questionText');
+const optionsCont  = document.getElementById('optionsContainer');
+const prevBtn      = document.getElementById('prevBtn');
+const nextBtn      = document.getElementById('nextBtn');
 
-/* ---------- HELPERS ---------- */
 function showStep(step) {
   [stepQuiz, stepCadastro, stepResult].forEach(s => s.classList.remove('active'));
   step.classList.add('active');
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-/* ---------- RENDER QUESTION ---------- */
 function renderQuestion() {
   const q     = QUESTIONS[current];
   const total = QUESTIONS.length;
   const pct   = ((current + 1) / total) * 100;
-
-  progressFill.style.width   = pct + '%';
-  progressLabel.textContent  = `Questão ${current + 1} de ${total}`;
-  areaTag.textContent        = q.area;
-  questionText.textContent   = q.text;
-  optionsCont.innerHTML      = '';
-
-  q.options.forEach((opt, i) => {
-    const btn = document.createElement('button');
+  progressFill.style.width  = pct + '%';
+  progressLabel.textContent = 'Questão ' + (current + 1) + ' de ' + total;
+  areaTag.textContent       = q.area;
+  questionText.textContent  = q.text;
+  optionsCont.innerHTML     = '';
+  q.options.forEach(function(opt, i) {
+    var btn = document.createElement('button');
     btn.className = 'option-btn' + (answers[current] === i ? ' selected' : '');
-    btn.innerHTML = `<span class="option-letter">${String.fromCharCode(65 + i)}</span> ${opt}`;
-    btn.addEventListener('click', () => selectOption(i));
+    btn.innerHTML = '<span class="option-letter">' + String.fromCharCode(65 + i) + '</span> ' + opt;
+    btn.addEventListener('click', function() { selectOption(i); });
     optionsCont.appendChild(btn);
   });
-
   prevBtn.style.display = current > 0 ? 'inline-flex' : 'none';
   nextBtn.disabled      = answers[current] === undefined;
   nextBtn.textContent   = current === total - 1 ? 'Ver meu resultado →' : 'Próxima →';
@@ -81,84 +71,75 @@ function renderQuestion() {
 
 function selectOption(index) {
   answers[current] = index;
-  document.querySelectorAll('.option-btn').forEach((b, i) =>
-    b.classList.toggle('selected', i === index)
-  );
+  document.querySelectorAll('.option-btn').forEach(function(b, i) {
+    b.classList.toggle('selected', i === index);
+  });
   nextBtn.disabled = false;
 }
 
-nextBtn.addEventListener('click', () => {
+nextBtn.addEventListener('click', function() {
   if (current < QUESTIONS.length - 1) { current++; renderQuestion(); }
   else computeAndShowResult();
 });
-prevBtn.addEventListener('click', () => { if (current > 0) { current--; renderQuestion(); } });
 
-/* ---------- SCORING ---------- */
+prevBtn.addEventListener('click', function() {
+  if (current > 0) { current--; renderQuestion(); }
+});
+
 function computeAndShowResult() {
-  let raw = 0, maxRaw = 0;
-  QUESTIONS.forEach((q, i) => {
+  var raw = 0, maxRaw = 0;
+  QUESTIONS.forEach(function(q, i) {
     maxRaw += q.weight;
     if (answers[i] === q.correct) raw += q.weight;
   });
-
-  const ratio     = raw / maxRaw;
-  const iq        = Math.round(70 + ratio * 75);
-  const percentil = Math.round(ratio * 96 + 2);
-
-  iqResult = { iqLow: iq - 5, iqHigh: iq + 5, percentil };
-
-  // Show result + cadastro form
-  document.getElementById('resultRangeCadastro').textContent = `${iq - 5} – ${iq + 5}`;
-  document.getElementById('resultPercCadastro').textContent  = `Você está acima de ${percentil}% das pessoas avaliadas`;
+  var ratio     = raw / maxRaw;
+  var iq        = Math.round(70 + ratio * 75);
+  var percentil = Math.round(ratio * 96 + 2);
+  iqResult = { iqLow: iq - 5, iqHigh: iq + 5, percentil: percentil };
+  document.getElementById('resultRangeCadastro').textContent = (iq - 5) + ' – ' + (iq + 5);
+  document.getElementById('resultPercCadastro').textContent  = 'Você está acima de ' + percentil + '% das pessoas avaliadas';
   showStep(stepCadastro);
 }
 
-/* ---------- CADASTRO + ENVIO ---------- */
-document.getElementById('cadastroForm').addEventListener('submit', async (e) => {
+document.getElementById('cadastroForm').addEventListener('submit', function(e) {
   e.preventDefault();
-
-  const nome  = document.getElementById('cNome').value.trim();
-  const email = document.getElementById('cEmail').value.trim();
-  const btn   = document.getElementById('cadastroBtn');
-
+  var nome  = document.getElementById('cNome').value.trim();
+  var email = document.getElementById('cEmail').value.trim();
+  var btn   = document.getElementById('cadastroBtn');
   if (!nome || !email) return;
 
   btn.disabled    = true;
   btn.textContent = 'Salvando...';
 
-  const payload = {
-    nome,
-    email,
+  // Salva na sessão
+  sessionStorage.setItem('nm_nome',      nome);
+  sessionStorage.setItem('nm_email',     email);
+  sessionStorage.setItem('nm_iq_low',    iqResult.iqLow);
+  sessionStorage.setItem('nm_iq_high',   iqResult.iqHigh);
+  sessionStorage.setItem('nm_percentil', iqResult.percentil);
+
+  var payload = JSON.stringify({
+    nome:      nome,
+    email:     email,
     iq_low:    iqResult.iqLow,
     iq_high:   iqResult.iqHigh,
     percentil: iqResult.percentil
-  };
+  });
 
-  // Salvar localmente para a página de obrigado
-  sessionStorage.setItem('nm_nome',     nome);
-  sessionStorage.setItem('nm_email',    email);
-  sessionStorage.setItem('nm_iq_low',   iqResult.iqLow);
-  sessionStorage.setItem('nm_iq_high',  iqResult.iqHigh);
-  sessionStorage.setItem('nm_percentil',iqResult.percentil);
-
+  // Dispara para o Google sem esperar resposta (resolve problema de CORS)
   try {
-    // Envia para Google Apps Script (no-cors para evitar bloqueio CORS)
-    await fetch(APPS_SCRIPT_URL, {
-      method: 'POST',
-      mode:   'no-cors',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    });
-  } catch (_) {
-    // Continua mesmo se falhar (dados já estão no sessionStorage)
+    navigator.sendBeacon(APPS_SCRIPT_URL, new Blob([payload], { type: 'application/json' }));
+  } catch(_) {
+    fetch(APPS_SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: payload });
   }
 
-  // Redireciona para Kiwify com parâmetros UTM
-  const kiwifyBase = 'https://pay.kiwify.com.br/0dmU36N';
-  const params     = new URLSearchParams({ name: nome, email, checkout_name: nome });
-  window.location.href = `${kiwifyBase}?${params.toString()}`;
+  // Aguarda 800ms e redireciona
+  setTimeout(function() {
+    var kiwifyBase = 'https://pay.kiwify.com.br/0dmU36N';
+    var params = new URLSearchParams({ name: nome, email: email });
+    window.location.href = kiwifyBase + '?' + params.toString();
+  }, 800);
 });
 
-/* ---------- START ---------- */
 showStep(stepQuiz);
 renderQuestion();
